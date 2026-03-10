@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contacto | Departamento de Geografía</title>
+
+<link rel="stylesheet" href="styles.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+.contact-container{
+max-width:700px;
+margin:auto;
+padding:40px 20px;
+}
+
+.contact-box{
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 8px 18px rgba(0,0,0,0.08);
+}
+
+.contact-box h2{
+margin-top:0;
+}
+
+.contact-box p{
+color:#666;
+margin-bottom:20px;
+}
+
+.form-group{
+margin-bottom:18px;
+}
+
+.form-group label{
+display:block;
+margin-bottom:6px;
+font-weight:500;
+}
+
+.form-group input,
+.form-group textarea{
+width:100%;
+padding:10px;
+border-radius:6px;
+border:1px solid #ccc;
+font-family:'Inter', sans-serif;
+font-size:14px;
+}
+
+.form-group textarea{
+height:140px;
+resize:vertical;
+}
+
+.contact-info{
+margin-top:25px;
+color:#444;
+font-size:14px;
+line-height:1.6;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+<div class="logos">
+
+<img src="img/logo-geografia.png" class="logo">
+<img src="img/logo-facultad.png" class="logo">
+<img src="img/logo-udelar.png" class="logo">
+
+</div>
+
+<nav class="menu">
+
+<a href="index.html">Inicio</a>
+
+<div class="dropdown">
+<a href="#">Visualizadores</a>
+
+<div class="dropdown-content">
+
+<div class="dropdown-section">
+<strong>Interno</strong>
+<a href="https://geografiaudelar.github.io/Visualizador_tesis/" target="_blank">
+Tesis estudiantes
+</a>
+</div>
+
+<div class="dropdown-section">
+<strong>Casos de uso</strong>
+
+<a href="https://geografiaudelar.github.io/Visualizador_latitud_ciencias/" target="_blank">
+Cambios del territorio
+</a>
+
+<a href="https://ltaat-fcien.shinyapps.io/LocalizacionOptima/" target="_blank">
+Localización óptima
+</a>
+
+</div>
+
+<div class="dropdown-section">
+<strong>Proyectos</strong>
+
+<a href="https://api.rpubs.com/girmar/1228266" target="_blank">
+Casavalle
+</a>
+
+<a class="menu-disabled" title="Sitio en construcción 🚧">
+Residencia de estudiantes
+</a>
+
+</div>
+
+</div>
+</div>
+
+<a href="contacto.html">Contacto</a>
+
+</nav>
+
+</header>
+
+
+<section class="contact-container">
+
+<div class="contact-box">
+
+<h2>Nos interesa tu opinión</h2>
+
+<p>
+Si tenés dudas, comentarios o sugerencias sobre los visualizadores o los proyectos,
+podés escribirnos a través del siguiente formulario.
+</p>
+
+
+<form action="https://formsubmit.co/geografia@fcien.edu.uy" method="POST">
+
+<input type="hidden" name="_cc" value="ccastaneda@fcien.edu.uy,tele.fcien@gmail.com,girmar.laucho@fcien.edu.uy">
+
+<input type="hidden" name="_subject" value="Consulta desde la web del Departamento de Geografía">
+
+<input type="hidden" name="_captcha" value="false">
+
+
+<div class="form-group">
+
+<label>Tu correo electrónico</label>
+
+<input type="email" name="email" required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Título</label>
+
+<input type="text" name="title" required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Mensaje</label>
+
+<textarea name="message" required></textarea>
+
+</div>
+
+
+<button type="submit">Enviar mensaje</button>
+
+</form>
+
+
+<div class="contact-info">
+
+<strong>Contacto</strong><br><br>
+
+Tel.: Interno 173 / Directo 2525 1552<br><br>
+
+Correo: geografía@fcien.edu.uy
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<footer>
+
+🌐 2026 Departamento de Geografía - Facultad de Ciencias de la Universidad de la República
+
+</footer>
+
+
+</body>
+
+</html>
