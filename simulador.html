@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Simulador de Previaturas · Departamento de Geografía</title>
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="simulador.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+<header class="navbar">
+
+<div class="logos">
+<img src="img/logo-geografia.png" class="logo" onerror="this.style.display='none';">
+<img src="img/logo-facultad.png" class="logo" onerror="this.style.display='none';">
+<img src="img/logo-udelar.png" class="logo" onerror="this.style.display='none';">
+</div>
+
+<nav class="menu">
+
+<a href="index.html">Inicio</a>
+
+<div class="dropdown">
+<a href="#">Visualizadores</a>
+<div class="dropdown-content">
+  <div class="dropdown-section">
+    <strong>Trabajos finales de grado</strong>
+    <a href="https://geografiaudelar.github.io/Visualizador_tesis/" target="_blank">Tesis estudiantes</a>
+  </div>
+  <div class="dropdown-section">
+    <strong>Geografía en acción</strong>
+    <a href="https://geografiaudelar.github.io/Visualizador_latitud_ciencias/" target="_blank">Cambios del territorio</a>
+    <a href="https://geografiaudelar.github.io/visualizador_localizacion_optima/" target="_blank">Localización óptima</a>
+    <a href="https://geografiaudelar.github.io/VisualizadorMundial/" target="_blank">¿De dónde vienen nuestros mundialistas?</a>
+  </div>
+  <div class="dropdown-section">
+    <strong>Proyectos de investigación</strong>
+    <a href="https://api.rpubs.com/girmar/1228266" target="_blank">Casavalle</a>
+    <a href="https://geografiaudelar.github.io/EstudiantesCartografia/" target="_blank">Movilidad de los estudiantes de Cartografía</a>
+  </div>
+</div>
+</div>
+
+<div class="dropdown">
+<a href="metadatos.html">Metadatos</a>
+<div class="dropdown-content">
+  <div class="dropdown-section">
+    <strong>Trabajos finales de grado</strong>
+    <a href="metadatos/metadato_tesis_estudiantes.pdf" target="_blank">Tesis estudiantes</a>
+  </div>
+  <div class="dropdown-section">
+    <strong>Geografía en acción</strong>
+    <a href="metadatos/metadato_cambios_territorio.pdf" target="_blank">Cambios del territorio</a>
+    <a href="metadatos/metadato_localizacion_optima.pdf" target="_blank">Localización óptima</a>
+  </div>
+  <div class="dropdown-section">
+    <strong>Proyectos de investigación</strong>
+    <a href="metadatos/metadato_casavalle.pdf" target="_blank">Casavalle</a>
+    <a href="metadatos/metadato_residencia_estudiantes.pdf" target="_blank">Movilidad de los estudiantes de Cartografía</a>
+  </div>
+</div>
+</div>
+
+<a href="simulador.html" style="color:#1f4a87;font-weight:700;">Simulador (beta)</a>
+
+<a href="contacto.html">Contacto</a>
+
+</nav>
+
+</header>
+
+
+<section class="sim-hero">
+  <h1>Simulador de previaturas</h1>
+  <p>
+    El Simulador de Previaturas te ayuda a planificar tu itinerario de cursos en la Licenciatura en Geografía
+    a partir de las materias que ya aprobaste, y a verificar tu avance en la carrera. Marcá lo que ya cursaste
+    y vas a ver qué podés tomar en cada semestre, según los créditos y previaturas que pide el plan.
+  </p>
+</section>
+
+<section class="sim-layout">
+
+  <div class="sim-main-col">
+    <div id="sim-main">
+      <!-- Las tarjetas de semestre se generan con JavaScript -->
+    </div>
+
+    <div class="sim-electivas-wrap">
+      <h2 class="electivas-titulo">Otras materias que podés cursar</h2>
+      <p class="electivas-intro">
+        Estas unidades curriculares no tienen un semestre fijo dentro del plan: las podés cursar cuando quieras
+        y también suman créditos. Se separan según quién las dicta: el propio Departamento o
+        otro instituto de la Facultad.
+      </p>
+      <div class="sim-electivas" id="sim-electivas">
+        <!-- Se genera con JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <aside class="sim-summary" id="sim-summary">
+
+    <div class="summary-card">
+      <h2>Tu avance</h2>
+
+      <div class="summary-row summary-total">
+        <span>Créditos del componente geográfico</span>
+        <strong id="sum-geo">0</strong>
+      </div>
+
+      <div class="field-group">
+        <label>
+          Créditos de otras materias (fuera de este flujo)
+          <span class="field-hint">Conocimientos Básicos y Generales u otras áreas, para el Trabajo Final de Grado</span>
+        </label>
+        <div id="otras-lista" class="otras-lista"></div>
+        <div class="otras-form">
+          <input type="text" id="otra-nombre" placeholder="Materia (opcional)">
+          <input type="number" id="otra-creditos" placeholder="Créditos" min="0" step="1">
+          <button type="button" id="btn-agregar-otra">Agregar</button>
+        </div>
+      </div>
+
+      <div class="summary-row summary-total">
+        <span>Créditos totales acumulados</span>
+        <strong id="sum-total">0</strong>
+      </div>
+
+      <div class="area-breakdown" id="area-breakdown"></div>
+
+      <button id="btn-reset" class="btn-secundario">Reiniciar simulación</button>
+    </div>
+
+    <div class="summary-card">
+      <h2>Créditos mínimos por área</h2>
+      <p class="summary-note">Para poder dar el Trabajo Final de Grado necesitás acumular 220 créditos totales, respetando estos mínimos por área:</p>
+      <ul class="min-list" id="min-list"></ul>
+
+    </div>
+
+    <div class="summary-card legend-card">
+      <h2>Referencia</h2>
+      <div class="legend-list">
+        <div class="legend-item"><span class="dot dot-tm"></span> Teórico&nbsp;–&nbsp;Metodológico</div>
+        <div class="legend-item"><span class="dot dot-se"></span> Socioespacial</div>
+        <div class="legend-item"><span class="dot dot-sa"></span> Sistemas Ambientales</div>
+        <div class="legend-item"><span class="dot dot-tig"></span> Tecnologías de la Información Geográfica</div>
+      </div>
+    </div>
+
+  </aside>
+
+</section>
+
+<footer>
+🌐 2026 Departamento de Geografía - Facultad de Ciencias de la Universidad de la República
+</footer>
+
+<script src="simulador.js"></script>
+</body>
+
+</html>

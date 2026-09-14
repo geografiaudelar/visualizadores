@@ -1,0 +1,19 @@
+id,nombre,semestre,area,creditos,prereq_tipo,prereq_cursos,prereq_creditos,min_tm,min_se,min_sa,min_tig,min_cbg,nota
+c1,Introducción y métodos de la geografía,1,tm,12,ninguno,,,,,,,,
+c2,Cartografía,1,tig,12,ninguno,,,,,,,,
+c3,Fotointerpretación,2,tig,12,curso,c2,,,,,,,
+c4,Sistemas de Información Geográfica,2,tig,12,curso,c2,,,,,,,
+c5,Hidrogeografía,2,sa,8,curso_recomendada,c2,,,,,,,"Previatura sugerida, no obligatoria"
+c6,Geografía Humana,2,se,12,ninguno,,,,,,,,
+c7,Geografía Económica,3,se,12,ninguno,,,,,,,,
+c8,Geografía Rural,3,se,12,creditos,,40,,,,,,
+c9,Geografía Urbana,3,se,12,creditos,,40,,,,,,
+c10,Biogeografía,4,sa,10,creditos,,90,,,,,,
+c11,Evaluación de recursos naturales e impacto ambiental,4,sa,12,curso,c5,,,,,,,
+c12,Teledetección,4,tig,12,curso,c2,,,,,,,
+c13,Planificación territorial sostenible,5,tm,12,creditos,,180,,,,,,
+c14,Geografía del Uruguay,6,se,12,creditos,,180,,,,,,
+c15,Análisis Espacial,6,tm,12,creditos,,180,,,,,,
+c16,Metodología de la investigación geográfica,7,tm,12,creditos,,100,,,,,,
+c17,Diseño de investigación geográfica,7,tm,8,creditos,,200,,,,,,
+c18,Trabajo Final de Grado,8,tm,40,creditos_areas,,220,45,45,40,30,60,Requiere además los mínimos por área de conocimiento

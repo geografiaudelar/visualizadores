@@ -1,0 +1,218 @@
+/* =========================================================
+   simulador.css — Simulador de previaturas
+   Extiende la paleta y tipografía de styles.css
+   ========================================================= */
+
+:root {
+  --tm-border:  #c0392b;
+  --tm-fill:    #fdece9;
+  --se-border:  #c9971f;
+  --se-fill:    #fdf3d9;
+  --sa-border:  #3f9c5c;
+  --sa-fill:    #eaf7ee;
+  --tig-border: #6a4fa0;
+  --tig-fill:   #efeaf8;
+  --azul:       #3b6cb7;
+}
+
+/* ── HERO ────────────────────────────────────────── */
+.sim-hero {
+  text-align: center;
+  padding: 44px 20px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+.sim-hero h1 { font-size: 34px; margin-bottom: 14px; }
+.sim-hero p { color: #666; font-size: 17px; max-width: 720px; margin: auto; line-height: 1.6; }
+
+/* ── LAYOUT ──────────────────────────────────────── */
+.sim-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+  max-width: 1250px;
+  margin: 10px auto 60px;
+  padding: 0 30px;
+}
+.sim-main-col { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 22px; }
+#sim-main { display: flex; flex-direction: column; gap: 22px; }
+.sim-summary {
+  width: 340px; flex-shrink: 0;
+  display: flex; flex-direction: column; gap: 18px;
+  position: sticky; top: 20px;
+}
+
+/* ── ELECTIVAS (sin semestre fijo) ──────────────────── */
+.sim-electivas-wrap { margin-top: 6px; }
+.electivas-titulo { font-size: 21px; margin-bottom: 8px; }
+.electivas-intro { font-size: 13.5px; color: #666; line-height: 1.55; max-width: 640px; margin-bottom: 18px; }
+
+.electivas-grupo { margin-bottom: 24px; }
+.electivas-grupo-header {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+}
+.electivas-grupo-header h3 { font-size: 15px; }
+.electivas-lista { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.badge-propia, .badge-otro {
+  font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: .04em;
+}
+.badge-propia { background: #e0eefb; color: #1f5c96; }
+.badge-otro { background: #f1ecf7; color: #5a3f85; }
+
+.electiva-card {
+  border-radius: 12px; border: 1px solid #e2e2e2; background: #fff;
+  padding: 13px 16px; display: flex; flex-direction: column; gap: 6px;
+}
+.electiva-card.marcada { background: #f7f7f7; }
+.electiva-top { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; }
+.electiva-nombre { font-size: 14.5px; font-weight: 600; line-height: 1.35; }
+.electiva-creditos { font-size: 12px; color: #555; white-space: nowrap; }
+.electiva-meta { font-size: 12px; color: #777; }
+.electiva-area-chip {
+  display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 9px; border-radius: 20px; margin-top: 2px;
+}
+.chip-tm  { background: var(--tm-fill);  color: var(--tm-border); }
+.chip-se  { background: var(--se-fill);  color: var(--se-border); }
+.chip-sa  { background: var(--sa-fill);  color: var(--sa-border); }
+.chip-tig { background: var(--tig-fill); color: var(--tig-border); }
+.chip-cbg { background: #eef2fb; color: var(--azul); }
+.chip-libre { background: #f0f0f0; color: #777; }
+
+/* ── SEMESTRE ────────────────────────────────────── */
+.semestre-block {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+.semestre-header {
+  display: flex; align-items: baseline; gap: 10px;
+  padding: 16px 24px;
+  background: #f2f4f8;
+  border-bottom: 1px solid #e5e5e5;
+}
+.semestre-header h3 { font-size: 18px; margin: 0; }
+.semestre-header span { font-size: 13px; color: #888; }
+
+.materias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  padding: 18px 20px;
+}
+
+/* ── TARJETA MATERIA ─────────────────────────────── */
+.materia-card {
+  border-radius: 12px;
+  border: 1px solid var(--border-color, #ddd);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform .15s ease;
+}
+.materia-card.area-tm  { border-color: var(--tm-border);  background: var(--tm-fill); }
+.materia-card.area-se  { border-color: var(--se-border);  background: var(--se-fill); }
+.materia-card.area-sa  { border-color: var(--sa-border);  background: var(--sa-fill); }
+.materia-card.area-tig { border-color: var(--tig-border); background: var(--tig-fill); }
+
+.materia-top {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;
+}
+.materia-nombre { font-size: 15px; font-weight: 600; line-height: 1.35; }
+.materia-creditos { font-size: 12px; color: #555; white-space: nowrap; }
+
+.materia-check {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 13px; font-weight: 500; cursor: pointer; user-select: none;
+}
+.materia-check input { width: 16px; height: 16px; cursor: pointer; }
+
+.materia-estado {
+  font-size: 12.5px; font-weight: 600; padding: 5px 10px; border-radius: 20px;
+  display: inline-flex; align-items: center; gap: 5px; width: fit-content;
+}
+.estado-aprobada  { background: #e4e4e4; color: #666; }
+.estado-disponible{ background: #d9f3df; color: #1c7a3d; }
+.estado-bloqueada { background: #f1f1f1; color: #999; }
+
+.materia-req { font-size: 12.5px; color: #666; line-height: 1.4; }
+.materia-card.disabled { opacity: .55; }
+
+/* ── SUMMARY ─────────────────────────────────────── */
+.summary-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+  padding: 22px;
+}
+.summary-card h2 { font-size: 16px; margin-bottom: 14px; }
+.summary-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 0; font-size: 14px; border-bottom: 1px solid #eee;
+}
+.summary-total strong { font-size: 20px; color: var(--azul); }
+
+.field-group { padding: 14px 0; border-bottom: 1px solid #eee; }
+.field-group label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 6px; }
+.field-hint { display: block; font-weight: 400; color: #888; font-size: 11.5px; margin-top: 2px; }
+
+.otras-lista { display: flex; flex-direction: column; gap: 6px; margin: 10px 0; }
+.otra-item {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  background: #f5f6f8; border-radius: 7px; padding: 7px 10px; font-size: 13px;
+}
+.otra-item .otra-nombre { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #333; }
+.otra-item .otra-creditos { font-weight: 600; color: var(--azul); flex-shrink: 0; }
+.otra-item .otra-quitar {
+  background: none; border: none; color: #b33; cursor: pointer; font-size: 16px; line-height: 1;
+  padding: 0 2px; margin: 0; flex-shrink: 0;
+}
+.otras-vacio { font-size: 12.5px; color: #999; padding: 4px 0; }
+
+.otras-form { display: flex; gap: 6px; }
+.otras-form input[type="text"] {
+  flex: 1; min-width: 0; padding: 8px 10px; border-radius: 7px; border: 1px solid #ccc; font-size: 13px;
+  font-family: 'Inter', sans-serif;
+}
+.otras-form input[type="number"] {
+  width: 76px; padding: 8px 10px; border-radius: 7px; border: 1px solid #ccc; font-size: 13px;
+  font-family: 'Inter', sans-serif;
+}
+.otras-form button {
+  margin: 0; padding: 8px 14px; font-size: 13px; border-radius: 7px; flex-shrink: 0;
+}
+
+.area-breakdown { padding: 14px 0; display: flex; flex-direction: column; gap: 9px; }
+.area-row { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; }
+.area-row .dot { flex-shrink: 0; margin-top: 4px; }
+.area-row .area-nombre { flex: 1; min-width: 0; line-height: 1.4; }
+.area-row .area-valor { font-weight: 600; color: #333; flex-shrink: 0; white-space: nowrap; }
+
+.btn-secundario {
+  width: 100%; margin-top: 16px; padding: 10px; border-radius: 8px;
+  background: #eef2fb; color: var(--azul); border: 1px solid #d6e0f5;
+  font-weight: 600; font-size: 13.5px; cursor: pointer;
+}
+.btn-secundario:hover { background: var(--azul); color: white; }
+
+.summary-note { font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 12px; }
+.min-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.min-list li { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; font-size: 13.5px; }
+.min-list li span { flex: 1; min-width: 0; line-height: 1.4; }
+.min-list li strong { flex-shrink: 0; white-space: nowrap; color: var(--azul); padding-top: 1px; }
+
+.legend-list { display: flex; flex-direction: column; gap: 10px; }
+.legend-item { display: flex; align-items: center; gap: 9px; font-size: 13px; color: #444; }
+.dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+.dot-tm  { background: var(--tm-border); }
+.dot-se  { background: var(--se-border); }
+.dot-sa  { background: var(--sa-border); }
+.dot-tig { background: var(--tig-border); }
+
+/* ── RESPONSIVE ──────────────────────────────────── */
+@media (max-width: 980px) {
+  .sim-layout { flex-direction: column; }
+  .sim-summary { width: 100%; position: static; }
+}
