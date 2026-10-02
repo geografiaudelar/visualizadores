@@ -71,7 +71,7 @@
 </div>
 </div>
 
-<a href="simulador.html" style="color:#1f4a87;font-weight:700;">Simulador (beta)</a>
+<a href="simulador.html" style="color:#1f4a87;font-weight:700;">Simulador (v1.0)</a>
 
 <a href="contacto.html">Contacto</a>
 
@@ -83,25 +83,60 @@
 <section class="sim-hero">
   <h1>Simulador de previaturas</h1>
   <p>
-    El Simulador de Previaturas te ayuda a planificar tu itinerario de cursos en la Licenciatura en Geografía
-    a partir de las materias que ya aprobaste, y a verificar tu avance en la carrera. Marcá lo que ya cursaste
-    y vas a ver qué podés tomar en cada semestre, según los créditos y previaturas que pide el plan.
+    Esta herramienta te ayuda a planificar tu recorrido por la Licenciatura en Geografía. Marcá las unidades
+    curriculares que ya aprobaste y vas a ver cuáles podés cursar, qué previaturas te faltan y cuántos créditos
+    llevás en cada área.
   </p>
+</section>
+
+<section class="sim-guia" aria-label="Cómo usar el simulador">
+  <div class="guia-paso">
+    <span class="guia-num">1</span>
+    <div>
+      <h3>Trayectoria sugerida por semestre</h3>
+      <p>Las unidades curriculares del plan ordenadas en ocho semestres. Marcá las que aprobaste y cada tarjeta te
+      indica si ya la podés cursar o qué te falta.</p>
+    </div>
+  </div>
+  <div class="guia-paso">
+    <span class="guia-num">2</span>
+    <div>
+      <h3>Unidades curriculares para intercalar</h3>
+      <p>Más abajo están las que no tienen semestre fijo. Las podés ir sumando cuando quieras; algunas traen un
+      semestre sugerido como orientación, pero no es obligatorio.</p>
+    </div>
+  </div>
+  <div class="guia-paso">
+    <span class="guia-num">3</span>
+    <div>
+      <h3>Tu avance</h3>
+      <p>En el panel lateral se suman tus créditos por área y lo que te falta para el Trabajo Final de Grado.
+      También podés descargar una planilla Excel que hace las mismas cuentas.</p>
+    </div>
+  </div>
+  <p class="guia-nota">Lo que marcás se guarda solo en este navegador. Nadie más lo ve.</p>
 </section>
 
 <section class="sim-layout">
 
   <div class="sim-main-col">
+    <div class="sim-seccion-head">
+      <h2 class="electivas-titulo">Trayectoria sugerida por semestre</h2>
+      <p class="electivas-intro">
+        Así organiza el plan las unidades curriculares a lo largo de la carrera. Cada tarjeta muestra si ya la
+        podés cursar según las previaturas y los créditos que tenés.
+      </p>
+    </div>
     <div id="sim-main">
       <!-- Las tarjetas de semestre se generan con JavaScript -->
     </div>
 
     <div class="sim-electivas-wrap">
-      <h2 class="electivas-titulo">Otras materias que podés cursar</h2>
+      <h2 class="electivas-titulo">Otras unidades curriculares que podés intercalar</h2>
       <p class="electivas-intro">
         Estas unidades curriculares no tienen un semestre fijo dentro del plan: las podés cursar cuando quieras
-        y también suman créditos. Se separan según quién las dicta: el propio Departamento o
-        otro instituto de la Facultad.
+        y también suman créditos. Algunas tienen un semestre sugerido, que es solo una orientación. Se separan
+        según quién las dicta: el propio Departamento u otro instituto de la Facultad.
       </p>
       <div class="sim-electivas" id="sim-electivas">
         <!-- Se genera con JavaScript -->
@@ -121,12 +156,12 @@
 
       <div class="field-group">
         <label>
-          Créditos de otras materias (fuera de este flujo)
+          Créditos de otras unidades curriculares (fuera de este listado)
           <span class="field-hint">Conocimientos Básicos y Generales u otras áreas, para el Trabajo Final de Grado</span>
         </label>
         <div id="otras-lista" class="otras-lista"></div>
         <div class="otras-form">
-          <input type="text" id="otra-nombre" placeholder="Materia (opcional)">
+          <input type="text" id="otra-nombre" placeholder="Unidad curricular (opcional)">
           <input type="number" id="otra-creditos" placeholder="Créditos" min="0" step="1">
           <button type="button" id="btn-agregar-otra">Agregar</button>
         </div>
@@ -142,6 +177,16 @@
       <button id="btn-reset" class="btn-secundario">Reiniciar simulación</button>
     </div>
 
+    <div class="summary-card excel-card">
+      <h2>Llevalo a Excel</h2>
+      <p class="summary-note">
+        Descargá una planilla que suma tus créditos por área y te muestra el progreso a medida que marcás
+        las unidades curriculares aprobadas. Funciona en Excel, LibreOffice y Google Sheets.
+      </p>
+      <button type="button" id="btn-excel-datos" class="btn-excel">Descargar con mi avance</button>
+      <button type="button" id="btn-excel-blanco" class="btn-secundario btn-excel-blanco">Descargar en blanco</button>
+    </div>
+
     <div class="summary-card">
       <h2>Créditos mínimos por área</h2>
       <p class="summary-note">Para poder dar el Trabajo Final de Grado necesitás acumular 220 créditos totales, respetando estos mínimos por área:</p>
@@ -152,7 +197,7 @@
     <div class="summary-card legend-card">
       <h2>Referencia</h2>
       <div class="legend-list">
-        <div class="legend-item"><span class="dot dot-tm"></span> Teórico&nbsp;–&nbsp;Metodológico</div>
+        <div class="legend-item"><span class="dot dot-tm"></span> Teórico-Metodológico</div>
         <div class="legend-item"><span class="dot dot-se"></span> Socioespacial</div>
         <div class="legend-item"><span class="dot dot-sa"></span> Sistemas Ambientales</div>
         <div class="legend-item"><span class="dot dot-tig"></span> Tecnologías de la Información Geográfica</div>
@@ -167,6 +212,7 @@
 🌐 2026 Departamento de Geografía - Facultad de Ciencias de la Universidad de la República
 </footer>
 
+<script src="simulador-excel.js"></script>
 <script src="simulador.js"></script>
 </body>
 

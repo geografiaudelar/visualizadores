@@ -1,5 +1,5 @@
 /* =========================================================
-   simulador.css — Simulador de previaturas
+   simulador.css · Simulador de previaturas
    Extiende la paleta y tipografía de styles.css
    ========================================================= */
 
@@ -211,8 +211,72 @@
 .dot-sa  { background: var(--sa-border); }
 .dot-tig { background: var(--tig-border); }
 
+
+/* ── GUÍA DE USO ─────────────────────────────────── */
+.sim-guia {
+  max-width: 1190px;
+  margin: 6px auto 26px;
+  padding: 0 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.guia-paso {
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+  padding: 16px 18px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.guia-num {
+  flex-shrink: 0;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--azul); color: white;
+  font-weight: 700; font-size: 14px;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.guia-paso h3 { font-size: 15px; margin: 3px 0 6px; }
+.guia-paso p { font-size: 13.5px; color: #666; margin: 0; line-height: 1.5; }
+.guia-nota { grid-column: 1 / -1; text-align: center; font-size: 12.5px; color: #888; margin: 0; }
+
+.sim-seccion-head .electivas-intro { margin-bottom: 0; }
+
+/* ── SUGERENCIAS DENTRO DE CADA SEMESTRE ─────────── */
+.semestre-sugeridas {
+  padding: 0 20px 16px;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+}
+.semestre-sugeridas strong { font-weight: 600; color: #444; }
+.semestre-sugeridas a {
+  color: var(--azul); text-decoration: none; border-bottom: 1px dotted var(--azul);
+}
+.semestre-sugeridas a:hover { border-bottom-style: solid; }
+.semestre-sugeridas .sug-ok { color: #999; text-decoration: line-through; border-bottom: none; }
+
+.electiva-sugerida {
+  display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 9px; border-radius: 20px;
+  background: #e8f4ec; color: #1c7a3d;
+}
+.electiva-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.electiva-chips .electiva-area-chip { margin-top: 0; }
+.electiva-card.resaltada { box-shadow: 0 0 0 3px #bcd3f2; transition: box-shadow .3s ease; }
+
+/* ── DESCARGA EXCEL ──────────────────────────────── */
+.btn-excel {
+  width: 100%; margin-top: 4px; padding: 11px; border-radius: 8px;
+  background: #1d6f42; color: white; border: none;
+  font-weight: 600; font-size: 13.5px; cursor: pointer;
+}
+.btn-excel:hover { background: #155a35; }
+.btn-excel-blanco { margin-top: 8px; }
+
 /* ── RESPONSIVE ──────────────────────────────────── */
 @media (max-width: 980px) {
   .sim-layout { flex-direction: column; }
+  .sim-guia { grid-template-columns: 1fr; }
   .sim-summary { width: 100%; position: static; }
 }

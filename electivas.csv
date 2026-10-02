@@ -1,32 +1,32 @@
-id,nombre,propia,centro,creditos,area,area_texto
-e1,Alfabetización en Información 1,no,Centro de Documentación Científica y Biblioteca,1,cbg,1 crédito
-e2,Alfabetización en Información II,no,Centro de Documentación Científica y Biblioteca,1,cbg,Conocimientos básicos y generales
-e3,EFI: Clubes de Ciencia como estrategia de enseñanza,no,Unidad de Extensión,7,libre,Extensión
-e4,EFI - Monitoreo participativo del río Santa Lucía,no,Unidad de Extensión,11,libre,Área extensión y actividades en el medio
-e5,EFI Ciencia en Territorio: un laboratorio de saberes compartidos,no,Unidad de Extensión e Instituto de Biología,6,libre,Extensión y actividades en el medio
-e6,EFI Memorias y justicia ambiental: un abordaje transdisciplinario,no,Unidad de Extensión y Núcleo Interdisciplinario,10,libre,Extensión
-e7,Geografía Económica (Complemento para egresados de Formación Docente),si,Geografía,4,se,Área Socio Espacial
-e8,Inglés I,no,Decanato,5,cbg,Área conocimientos básicos y generales
-e9,Inglés II,no,Decanato,5,cbg,Conocimientos básicos y generales
-e10,Pensamiento Crítico y Metodología Científica,no,Instituto de Física,8,cbg,Conocimientos básicos y generales
-e11,Química I / Química General,no,Centro de Investigaciones Nucleares,10,cbg,Conocimientos básicos generales
-e12,Química Nuclear,no,Centro de Investigaciones Nucleares,6,libre,Optativas
-e13,Taller de Geografía Política 1,si,Departamento de Geografía,8,cbg,Conocimientos básicos y generales
-e14,Universidad y sociedad,no,Unidad de Ciencia y Desarrollo,10,cbg,Conocimientos básicos generales
-e15,Agua y Salud,no,Instituto de Ecología y Ciencias Ambientales,10,sa,Área Sistemas Ambientales
-e16,Análisis de Datos para Ciencias,no,Centro de Matemática,12,cbg,Conocimientos Básicos y Generales
-e17,Cianobacterias y Eutrofización,no,Instituto de Ecología y Ciencias Ambientales,7,libre,Optativas
-e18,Ciencia del suelo,no,UNCIEP / Instituto de Ecología y Ciencias Ambientales,12,sa,Sistemas Ambientales
-e19,Climatología para Biogeociencias,no,Instituto de Física,12,cbg,Área Conocimientos Básicos y Generales
-e20,EFI Soberanía Alimentaria en los Barrios,si,Geografía,10,libre,Área Extensión y actividades en el medio
-e21,EFI: PAPUA – Programa de Acercamiento Pedagógico Uruguay–Antártida,no,Instituto de Biología,11,libre,Área Optativa
-e22,Ecosistemas costero-marinos,no,Instituto de Ecología y Ciencias Ambientales,6,sa,Área Sistemas ambientales
-e23,Estadística para Ciencias,no,Centro de Matemática,12,cbg,Conocimientos Básicos y Generales
-e25,Fototrampeo aplicado al monitoreo de la Biodiversidad,no,Instituto de Ecología y Ciencias Ambientales,6,sa,Área Sistemas ambientales
-e26,Geología General I,no,Instituto de Ciencias Geológicas,12,cbg,Conocimientos básicos generales
-e27,Introducción a la Meteorología,no,Instituto de Física,12,cbg,Área Conocimientos Básicos y Generales
-e28,Matemática 1,no,Centro de Matemática,12,cbg,Área conocimientos básicos generales
-e29,"Matemática 2, módulo 1",no,Centro de Matemática,6,cbg,Conocimientos Básicos Generales
-e30,"Matemática 2, módulo 2",no,Centro de Matemática,6,cbg,Conocimientos Básicos Generales
-e31,Un recorrido histórico de la Escuela matemática uruguaya,no,Centro de Matemática,8,libre,Optativas
-e32,"EFI - Ecoparque Idea Vilariño: memoria, territorio y comunidad",no,Unidad de Extensión,11,libre,Área extensión y actividades en el medio
+id,nombre,propia,centro,creditos,area,area_texto,semestre_sugerido
+e1,Alfabetización en Información 1,no,Centro de Documentación Científica y Biblioteca,1,cbg,1 crédito,1
+e2,Alfabetización en Información II,no,Centro de Documentación Científica y Biblioteca,1,cbg,Conocimientos básicos y generales,2
+e3,EFI: Clubes de Ciencia como estrategia de enseñanza,no,Unidad de Extensión,7,libre,Extensión,
+e4,EFI - Monitoreo participativo del río Santa Lucía,no,Unidad de Extensión,11,libre,Área extensión y actividades en el medio,
+e5,EFI Ciencia en Territorio: un laboratorio de saberes compartidos,no,Unidad de Extensión e Instituto de Biología,6,libre,Extensión y actividades en el medio,
+e6,EFI Memorias y justicia ambiental: un abordaje transdisciplinario,no,Unidad de Extensión y Núcleo Interdisciplinario,10,libre,Extensión,
+e7,Geografía Económica (Complemento para egresados de Formación Docente),si,Geografía,4,se,Área Socio Espacial,3
+e8,Inglés I,no,Decanato,5,cbg,Área conocimientos básicos y generales,1
+e9,Inglés II,no,Decanato,5,cbg,Conocimientos básicos y generales,2
+e10,Pensamiento Crítico y Metodología Científica,no,Instituto de Física,8,cbg,Conocimientos básicos y generales,
+e11,Química I / Química General,no,Centro de Investigaciones Nucleares,10,cbg,Conocimientos básicos generales,
+e12,Química Nuclear,no,Centro de Investigaciones Nucleares,6,libre,Optativas,
+e13,Taller de Geografía Política 1,si,Departamento de Geografía,8,cbg,Conocimientos básicos y generales,
+e14,Universidad y sociedad,no,Unidad de Ciencia y Desarrollo,10,cbg,Conocimientos básicos generales,
+e15,Agua y Salud,no,Instituto de Ecología y Ciencias Ambientales,10,sa,Área Sistemas Ambientales,
+e16,Análisis de Datos para Ciencias,no,Centro de Matemática,12,cbg,Conocimientos Básicos y Generales,
+e17,Cianobacterias y Eutrofización,no,Instituto de Ecología y Ciencias Ambientales,7,libre,Optativas,
+e18,Ciencia del suelo,no,UNCIEP / Instituto de Ecología y Ciencias Ambientales,12,sa,Sistemas Ambientales,
+e19,Climatología para Biogeociencias,no,Instituto de Física,12,cbg,Área Conocimientos Básicos y Generales,
+e20,EFI Soberanía Alimentaria en los Barrios,si,Geografía,10,libre,Área Extensión y actividades en el medio,
+e21,EFI: PAPUA – Programa de Acercamiento Pedagógico Uruguay–Antártida,no,Instituto de Biología,11,libre,Área Optativa,
+e22,Ecosistemas costero-marinos,no,Instituto de Ecología y Ciencias Ambientales,6,sa,Área Sistemas ambientales,
+e23,Estadística para Ciencias,no,Centro de Matemática,12,cbg,Conocimientos Básicos y Generales,
+e25,Fototrampeo aplicado al monitoreo de la Biodiversidad,no,Instituto de Ecología y Ciencias Ambientales,6,sa,Área Sistemas ambientales,
+e26,Geología General I,no,Instituto de Ciencias Geológicas,12,cbg,Conocimientos básicos generales,
+e27,Introducción a la Meteorología,no,Instituto de Física,12,cbg,Área Conocimientos Básicos y Generales,
+e28,Matemática 1,no,Centro de Matemática,12,cbg,Área conocimientos básicos generales,1
+e29,"Matemática 2, módulo 1",no,Centro de Matemática,6,cbg,Conocimientos Básicos Generales,
+e30,"Matemática 2, módulo 2",no,Centro de Matemática,6,cbg,Conocimientos Básicos Generales,
+e31,Un recorrido histórico de la Escuela matemática uruguaya,no,Centro de Matemática,8,libre,Optativas,
+e32,"EFI - Ecoparque Idea Vilariño: memoria, territorio y comunidad",no,Unidad de Extensión,11,libre,Área extensión y actividades en el medio,

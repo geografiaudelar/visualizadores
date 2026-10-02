@@ -1,5 +1,5 @@
 /* =========================================================
-   simulador.js — Simulador de previaturas
+   simulador.js · Simulador de previaturas
    Departamento de Geografía · Facultad de Ciencias · UdelaR
    Lee cursos.csv, cruza con lo que el usuario marcó como
    aprobado (guardado en localStorage) y calcula qué se
@@ -11,7 +11,7 @@ const ELECTIVAS_CSV_PATH = "electivas.csv";
 const STORAGE_KEY = "geo-simulador-previaturas";
 
 const NOMBRES_AREA = {
-  tm:  "Teórico – Metodológico",
+  tm:  "Teórico-Metodológico",
   se:  "Socioespacial",
   sa:  "Sistemas Ambientales",
   tig: "Tecnologías de la Información Geográfica"
@@ -212,7 +212,8 @@ function renderSemestres() {
 
     const header = document.createElement("div");
     header.className = "semestre-header";
-    header.innerHTML = `<h3>Semestre ${sem}</h3><span>${cursosSemestre.length} materia${cursosSemestre.length > 1 ? "s" : ""}</span>`;
+    const n = cursosSemestre.length;
+    header.innerHTML = `<h3>Semestre ${sem}</h3><span>${n} ${n > 1 ? "unidades curriculares" : "unidad curricular"}</span>`;
     bloque.appendChild(header);
 
     const grid = document.createElement("div");
@@ -221,8 +222,36 @@ function renderSemestres() {
     cursosSemestre.forEach(curso => grid.appendChild(renderTarjetaMateria(curso)));
 
     bloque.appendChild(grid);
+
+    const sugeridas = renderSugeridasSemestre(sem);
+    if (sugeridas) bloque.appendChild(sugeridas);
+
     cont.appendChild(bloque);
   });
+}
+
+// Unidades curriculares sin semestre fijo que se sugieren para este semestre
+function renderSugeridasSemestre(sem) {
+  const items = ELECTIVAS.filter(e => Number(e.semestre_sugerido) === sem);
+  if (!items.length) return null;
+
+  const div = document.createElement("div");
+  div.className = "semestre-sugeridas";
+  const enlaces = items.map(e => {
+    const clase = ESTADO.electivas[e.id] ? ' class="sug-ok"' : "";
+    return `<a href="#electiva-${e.id}" data-id="${e.id}"${clase}>${e.nombre}</a>`;
+  }).join(", ");
+  div.innerHTML = `<strong>Para este semestre también te sugerimos:</strong> ${enlaces}`;
+
+  div.querySelectorAll("a").forEach(a => a.addEventListener("click", ev => {
+    ev.preventDefault();
+    const card = document.getElementById("electiva-" + a.dataset.id);
+    if (!card) return;
+    card.scrollIntoView({ behavior: "smooth", block: "center" });
+    card.classList.add("resaltada");
+    setTimeout(() => card.classList.remove("resaltada"), 1600);
+  }));
+  return div;
 }
 
 function renderTarjetaMateria(curso) {
@@ -307,7 +336,7 @@ function renderResumen() {
   minList.innerHTML = "";
   const orden = [
     ["Conocimientos Básicos y Generales", MINIMOS_AREA.cbg, creditosCBG()],
-    ["Teórico – Metodológico", MINIMOS_AREA.tm, porArea.tm || 0],
+    ["Teórico-Metodológico", MINIMOS_AREA.tm, porArea.tm || 0],
     ["Socioespacial", MINIMOS_AREA.se, porArea.se || 0],
     ["Sistemas Ambientales", MINIMOS_AREA.sa, porArea.sa || 0],
     ["Tecnologías de la Información Geográfica", MINIMOS_AREA.tig, porArea.tig || 0],
@@ -347,7 +376,7 @@ function renderOtrasLista() {
 
 const CHIP_AREA_LABEL = {
   tm: "Teórico-Metodológico", se: "Socioespacial", sa: "Sistemas Ambientales",
-  tig: "Tec. Información Geográfica", cbg: "Cond. Básicos y Generales", libre: "Extensión / Optativa"
+  tig: "Tec. Información Geográfica", cbg: "Con. Básicos y Generales", libre: "Extensión u optativa"
 };
 
 function renderElectivas() {
@@ -360,7 +389,10 @@ function renderElectivas() {
   ];
 
   grupos.forEach(g => {
-    const items = ELECTIVAS.filter(e => e.propia === g.key);
+    const items = ELECTIVAS.filter(e => e.propia === g.key).sort((a, b) => {
+      const sa = Number(a.semestre_sugerido) || 99, sb = Number(b.semestre_sugerido) || 99;
+      return sa - sb || a.nombre.localeCompare(b.nombre, "es");
+    });
     if (!items.length) return;
 
     const grupo = document.createElement("div");
@@ -384,13 +416,16 @@ function renderTarjetaElectiva(e) {
   const marcada = !!ESTADO.electivas[e.id];
   const card = document.createElement("div");
   card.className = "electiva-card" + (marcada ? " marcada" : "");
+  card.id = "electiva-" + e.id;
+  const sug = Number(e.semestre_sugerido);
+  const chipSugerida = sug ? `<span class="electiva-sugerida">Sugerida en semestre ${sug}</span>` : "";
 
   card.innerHTML = `
     <div class="electiva-top">
       <span class="electiva-nombre">${e.nombre}</span>
       <span class="electiva-creditos">${e.creditos} cr.</span>
     </div>
-    <span class="electiva-area-chip chip-${e.area}">${CHIP_AREA_LABEL[e.area] || e.area}</span>
+    <div class="electiva-chips"><span class="electiva-area-chip chip-${e.area}">${CHIP_AREA_LABEL[e.area] || e.area}</span>${chipSugerida}</div>
     <span class="electiva-meta">${e.centro}</span>
     <label class="materia-check">
       <input type="checkbox" ${marcada ? "checked" : ""}> Ya la aprobé
@@ -429,14 +464,31 @@ async function iniciar() {
     if (e.key === "Enter") agregarOtra();
   });
 
+  document.getElementById("btn-excel-datos").addEventListener("click", () => descargarExcel(true));
+  document.getElementById("btn-excel-blanco").addEventListener("click", () => descargarExcel(false));
+
   document.getElementById("btn-reset").addEventListener("click", () => {
-    if (!confirm("¿Reiniciar la simulación? Se van a borrar todas las materias marcadas como aprobadas y los créditos agregados.")) return;
+    if (!confirm("¿Reiniciar la simulación? Se van a borrar todas las unidades curriculares marcadas como aprobadas y los créditos agregados.")) return;
     ESTADO = { aprobadas: {}, otras: [], electivas: {} };
     guardarEstado();
     render();
   });
 
   render();
+}
+
+function descargarExcel(conDatos) {
+  if (!window.SimuladorExcel) {
+    alert("No se pudo cargar el generador de planillas (simulador-excel.js).");
+    return;
+  }
+  const nombre = conDatos
+    ? "simulador_previaturas_geografia_mi_avance.xlsx"
+    : "simulador_previaturas_geografia_en_blanco.xlsx";
+  window.SimuladorExcel.descargar(
+    { cursos: CURSOS, electivas: ELECTIVAS, estado: ESTADO, conDatos },
+    nombre
+  );
 }
 
 function agregarOtra() {
